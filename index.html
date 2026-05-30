@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baguettes &amp; More — Hot baguettes, big paninis, proper breakfasts · 127 Hughenden Road, High Wycombe</title>
+<meta name="description" content="Independent sandwich shop on Hughenden Road, High Wycombe. Hot baguettes, piri-piri paninis, full English breakfasts, jacket potatoes, double-patty burgers and protein shakes. Open seven days. Call 01494 531757.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF5E6;      /* toasted-bread cream */
+    --paper-2:#F2E6C8;    /* second cream slab */
+    --ink:#2A1B11;        /* dark-roast / griddle char */
+    --ink-soft:#4A3624;
+    --paprika:#C24B17;    /* piri-piri red */
+    --yolk:#E8A33D;       /* yolk / mustard */
+    --char:#1A0F08;
+    --rule:#D7C28F;
+    --font-display:"Yanone Kaffeesatz","Oswald",Impact,sans-serif;
+    --font-body:"Lora","Iowan Old Style",Georgia,serif;
+    --rhythm:clamp(1rem,.62rem + .55vw,1.125rem);
+    --maxw:1240px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:var(--rhythm);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  body::before{
+    /* paper grain — 4% opacity halftone */
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:60;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.10  0 0 0 0 0.06  0 0 0 0.5 0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.40'/></svg>");
+    mix-blend-mode:multiply;
+    opacity:.10;
+  }
+  a{color:inherit; text-decoration-thickness:1px; text-underline-offset:3px}
+  a:hover{color:var(--paprika)}
+  h1,h2,h3,h4{font-family:var(--font-display); font-weight:700; line-height:.92; letter-spacing:-0.005em; margin:0; text-wrap:balance}
+  p{text-wrap:pretty; hyphens:auto; margin:.6em 0}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(1.1rem,3vw,2.4rem)}
+
+  /* Status bar — phone, hours, address */
+  .topbar{
+    background:var(--char); color:var(--paper);
+    font-family:var(--font-display); font-weight:500;
+    font-size:clamp(.95rem,.5rem + .7vw,1.15rem);
+    letter-spacing:.06em; text-transform:uppercase;
+  }
+  .topbar .wrap{display:flex; justify-content:space-between; align-items:center; gap:1.2rem; padding-top:.55rem; padding-bottom:.55rem; flex-wrap:wrap}
+  .topbar a{text-decoration:none}
+  .topbar .pill{display:inline-flex; align-items:center; gap:.55rem; padding:.18rem .7rem; border:1px solid var(--yolk); border-radius:999px; color:var(--yolk)}
+  .topbar .pill::before{content:""; width:.55rem; height:.55rem; border-radius:50%; background:var(--yolk); box-shadow:0 0 0 4px rgba(232,163,61,.18)}
+  .topbar .tel{color:var(--paper); border-bottom:2px solid var(--paprika); padding-bottom:1px}
+  .topbar .tel:hover{color:var(--yolk); border-color:var(--yolk)}
+
+  /* Nav */
+  nav.main{position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:1px solid var(--rule)}
+  nav.main .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:.9rem; padding-bottom:.9rem}
+  .brand{font-family:var(--font-display); font-weight:700; font-size:clamp(1.5rem,.8rem + 1.3vw,1.95rem); letter-spacing:-.01em; text-decoration:none; color:var(--ink); display:flex; align-items:baseline; gap:.45rem}
+  .brand .amp{color:var(--paprika); font-style:italic; font-family:var(--font-body); font-weight:400; font-size:.85em; transform:translateY(.05em)}
+  .navlinks{display:flex; gap:1.4rem; align-items:center; font-family:var(--font-display); font-weight:500; text-transform:uppercase; letter-spacing:.1em; font-size:.95rem}
+  .navlinks a{text-decoration:none; padding:.3rem 0; border-bottom:2px solid transparent}
+  .navlinks a:hover{border-bottom-color:var(--paprika); color:var(--paprika)}
+  .navlinks .order{background:var(--ink); color:var(--paper); padding:.55rem 1rem; border-radius:0; border:none}
+  .navlinks .order:hover{background:var(--paprika); color:var(--paper); border:none}
+  @media (max-width:760px){.navlinks{gap:.9rem; font-size:.82rem} .navlinks a:not(.order){display:none}}
+
+  /* HERO — asymmetric editorial */
+  .hero{padding:clamp(2.6rem,5vw,5.5rem) 0 clamp(2rem,4vw,4rem)}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr .9fr; gap:clamp(1.5rem,4vw,4rem); align-items:end}
+  @media (max-width:880px){.hero .wrap{grid-template-columns:1fr; gap:1.8rem}}
+  .eyebrow{font-family:var(--font-display); font-weight:500; text-transform:uppercase; letter-spacing:.22em; font-size:.95rem; color:var(--ink-soft); margin-bottom:.4rem; display:inline-flex; align-items:center; gap:.7rem}
+  .eyebrow::before,.eyebrow::after{content:""; height:1px; background:var(--ink-soft); flex:0 0 1.6rem}
+  .h-display{
+    font-family:var(--font-display); font-weight:700;
+    font-size:clamp(3.8rem,9.4vw + .2rem,9rem);
+    line-height:.86; letter-spacing:-0.015em;
+    text-transform:uppercase;
+  }
+  .h-display em{font-family:var(--font-body); font-style:italic; font-weight:400; text-transform:none; color:var(--paprika); letter-spacing:-0.005em; font-size:.78em; display:inline-block; transform:translateY(-.06em)}
+  .h-display .ink-yolk{color:var(--paprika)}
+  .h-sub{font-family:var(--font-body); font-size:clamp(1.05rem,.55rem + .9vw,1.3rem); color:var(--ink-soft); max-width:34ch; margin-top:1.1rem}
+  .hero-right{display:flex; flex-direction:column; gap:1.4rem; padding-bottom:.4rem}
+  .hero-card{
+    background:var(--char); color:var(--paper);
+    padding:1.4rem 1.5rem 1.5rem;
+    border:1px solid var(--char);
+    position:relative;
+  }
+  .hero-card::before{content:""; position:absolute; inset:6px; border:1px dashed rgba(232,163,61,.5); pointer-events:none}
+  .hero-card .label{font-family:var(--font-display); text-transform:uppercase; letter-spacing:.2em; font-size:.8rem; color:var(--yolk); margin-bottom:.4rem}
+  .hero-card .tel-big{font-family:var(--font-display); font-weight:700; font-size:clamp(1.9rem,1rem + 2.2vw,2.7rem); letter-spacing:.01em; color:var(--paper); text-decoration:none; display:block; line-height:1}
+  .hero-card .tel-big:hover{color:var(--yolk)}
+  .hero-card .addr{font-family:var(--font-body); font-style:italic; font-size:1rem; margin-top:.9rem; color:var(--paper); opacity:.85}
+  .hero-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:.9rem; font-family:var(--font-display); text-transform:uppercase; letter-spacing:.08em}
+  .hero-stats .stat{border-top:2px solid var(--ink); padding-top:.6rem}
+  .hero-stats .n{display:block; font-size:clamp(1.7rem,.9rem + 1.6vw,2.4rem); font-weight:700; line-height:1; color:var(--ink)}
+  .hero-stats .l{font-size:.78rem; color:var(--ink-soft); margin-top:.3rem; display:block}
+
+  /* MARQUEE strip */
+  .marquee{
+    background:var(--paprika); color:var(--paper);
+    overflow:hidden; padding:.85rem 0;
+    border-top:1px solid var(--char); border-bottom:1px solid var(--char);
+    --speed:36s;
+  }
+  .marquee__track{
+    display:inline-flex; gap:2.4rem; white-space:nowrap;
+    animation:marq var(--speed) linear infinite;
+    font-family:var(--font-display); text-transform:uppercase;
+    letter-spacing:.16em; font-size:clamp(1.2rem,.7rem + 1vw,1.7rem); font-weight:500;
+  }
+  .marquee__track span{display:inline-flex; align-items:center; gap:2.4rem}
+  .marquee__track span::after{content:"✦"; color:var(--yolk); font-size:.85em}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.marquee__track{animation:none}}
+
+  /* SECTION rhythm */
+  section{padding:clamp(3rem,6vw,5.5rem) 0}
+  section.cream-2{background:var(--paper-2)}
+  section.dark{background:var(--char); color:var(--paper)}
+  section.dark .eyebrow{color:var(--yolk)} section.dark .eyebrow::before, section.dark .eyebrow::after{background:var(--yolk)}
+  section.dark .h-section{color:var(--paper)}
+  .h-section{font-size:clamp(2.4rem,5.5vw,4.5rem); text-transform:uppercase; letter-spacing:-0.012em; line-height:.92}
+  .h-section em{font-family:var(--font-body); font-style:italic; font-weight:400; text-transform:none; color:var(--paprika); font-size:.6em; display:block; margin-top:.3rem; letter-spacing:0}
+
+  /* MENU — editorial broadsheet */
+  .menu-head{display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:end; margin-bottom:clamp(2rem,4vw,3.5rem); border-bottom:2px solid var(--ink); padding-bottom:1.4rem}
+  @media (max-width:680px){.menu-head{grid-template-columns:1fr}}
+  .menu-head p{max-width:36ch; color:var(--ink-soft); margin:0; font-style:italic}
+
+  .menu-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(2rem,4vw,4rem) clamp(2rem,5vw,5rem)}
+  @media (max-width:760px){.menu-grid{grid-template-columns:1fr}}
+  .m-block h3{
+    font-family:var(--font-display); font-weight:700; text-transform:uppercase;
+    font-size:clamp(1.8rem,1rem + 1.6vw,2.6rem); letter-spacing:-0.01em;
+    border-bottom:1px solid var(--ink); padding-bottom:.55rem; margin-bottom:1rem;
+    display:flex; justify-content:space-between; align-items:baseline; gap:1rem;
+  }
+  .m-block h3 .num{font-family:var(--font-body); font-style:italic; font-weight:400; font-size:.5em; color:var(--paprika); letter-spacing:.06em}
+  .m-block ul{list-style:none; padding:0; margin:0}
+  .m-block li{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:.5rem 0; border-bottom:1px dotted var(--rule);
+    font-size:1.05rem;
+  }
+  .m-block li:last-child{border-bottom:none}
+  .m-block li .item{font-weight:600}
+  .m-block li .note{font-style:italic; color:var(--ink-soft); font-size:.92rem; text-align:right; max-width:14ch}
+  .m-foot{margin-top:2.2rem; padding-top:1.2rem; border-top:2px solid var(--ink); display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; font-style:italic; color:var(--ink-soft)}
+  .m-foot a{color:var(--ink)}
+
+  /* WHERE block */
+  .where-grid{display:grid; grid-template-columns:1.05fr .85fr; gap:clamp(2rem,5vw,4.5rem); align-items:start}
+  @media (max-width:820px){.where-grid{grid-template-columns:1fr}}
+  .hours-list{margin:1.4rem 0 0; padding:0; list-style:none; font-family:var(--font-display); text-transform:uppercase; letter-spacing:.08em}
+  .hours-list li{display:flex; justify-content:space-between; align-items:baseline; padding:.7rem 0; border-bottom:1px solid rgba(255,255,255,.18); font-size:1.2rem}
+  .hours-list .day{font-weight:500}
+  .hours-list .h{font-weight:700; color:var(--yolk); font-variant-numeric:tabular-nums}
+  .addr-block{font-style:italic; font-size:1.15rem; margin-top:1.3rem; color:var(--paper)}
+  .ctaA{display:inline-flex; align-items:center; gap:.6rem; margin-top:1.6rem; background:var(--paprika); color:var(--paper); padding:.85rem 1.4rem; text-decoration:none; font-family:var(--font-display); text-transform:uppercase; letter-spacing:.14em; font-weight:500}
+  .ctaA:hover{background:var(--yolk); color:var(--char)}
+  .ctaA::after{content:"→"; transition:transform .3s}
+  .ctaA:hover::after{transform:translateX(4px)}
+
+  .map-card{position:relative; background:var(--paper-2); aspect-ratio:4/3; border:1px solid var(--ink); overflow:hidden}
+  .map-card iframe{border:0; width:100%; height:100%; display:block; filter:saturate(.8) contrast(1.05)}
+  .map-tag{position:absolute; left:1rem; top:1rem; background:var(--char); color:var(--paper); padding:.5rem .9rem; font-family:var(--font-display); text-transform:uppercase; letter-spacing:.12em; font-size:.78rem; z-index:2}
+
+  /* TRUST strip */
+  .trust{background:var(--paper-2)}
+  .trust .wrap{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; align-items:center; text-align:center; padding-top:1.6rem; padding-bottom:1.6rem; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+  @media (max-width:680px){.trust .wrap{grid-template-columns:1fr}}
+  .trust .t{display:flex; flex-direction:column; align-items:center; gap:.2rem; font-family:var(--font-display); text-transform:uppercase; letter-spacing:.1em}
+  .trust .t .n{font-size:clamp(2rem,1rem + 2vw,2.8rem); font-weight:700; color:var(--paprika); line-height:1}
+  .trust .t .l{font-size:.82rem; color:var(--ink-soft); margin-top:.3rem}
+
+  /* FOOTER as letterhead */
+  footer{background:var(--char); color:var(--paper); padding:clamp(3rem,5vw,4.5rem) 0 1.6rem}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:clamp(1.6rem,4vw,3rem)}
+  @media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+  footer h2{font-family:var(--font-display); font-weight:700; font-size:clamp(2.8rem,1.5rem + 3vw,4.4rem); line-height:.9; text-transform:uppercase; color:var(--paper)}
+  footer h2 em{font-family:var(--font-body); font-style:italic; font-weight:400; color:var(--yolk); font-size:.55em; text-transform:none; display:block; margin-top:.3rem; letter-spacing:0}
+  footer h4{font-family:var(--font-display); text-transform:uppercase; letter-spacing:.16em; font-size:.85rem; color:var(--yolk); margin-bottom:.7rem; font-weight:500}
+  footer p, footer a{font-family:var(--font-body); color:var(--paper); line-height:1.6; font-size:1rem}
+  footer a{text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--paprika)}
+  footer a:hover{color:var(--yolk); text-decoration-color:var(--yolk)}
+  .legal{margin-top:3rem; padding-top:1.4rem; border-top:1px solid rgba(232,163,61,.25); font-size:.82rem; color:rgba(251,245,230,.55); display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-style:italic}
+
+  /* scroll reveal */
+  @supports (animation-timeline:view()){
+    .reveal{animation:rise both; animation-timeline:view(); animation-range:entry 0% cover 25%}
+    @keyframes rise{from{opacity:0; transform:translateY(1.6rem)} to{opacity:1; transform:translateY(0)}}
+  }
+  @media (prefers-reduced-motion:reduce){.reveal{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- TOP STATUS BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="pill">Open seven days</span></span>
+    <span>127 Hughenden Road · HP13 5PN</span>
+    <a class="tel" href="tel:+441494531757">Call · 01494 531757</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="main">
+  <div class="wrap">
+    <a href="#" class="brand">Baguettes <span class="amp">&amp;</span> More</a>
+    <div class="navlinks">
+      <a href="#menu">Menu</a>
+      <a href="#where">Find us</a>
+      <a class="order" href="tel:+441494531757">Order · 01494 531757</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Independent · Hughenden Road · Since the morning rush</span>
+      <h1 class="h-display">
+        Hot baguettes,<br>
+        big <span class="ink-yolk">paninis</span>,<br>
+        proper <em>breakfasts.</em>
+      </h1>
+      <p class="h-sub">A working High Wycombe sandwich shop. Grilled paninis, full-English breakfasts till lunch, jacket spuds, double-patty burgers, and protein shakes for after the gym. Walk-in or ring ahead.</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="label">Ring ahead — pick it up hot</div>
+        <a class="tel-big" href="tel:+441494531757">01494&nbsp;531757</a>
+        <p class="addr">127 Hughenden Road,<br>High Wycombe, HP13 5PN</p>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="n">4.2★</span><span class="l">85 Google reviews</span></div>
+        <div class="stat"><span class="n">7</span><span class="l">Days a week</span></div>
+        <div class="stat"><span class="n">9am</span><span class="l">From breakfast</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Piri-Piri Chicken Panini</span>
+    <span>Full English Breakfast</span>
+    <span>Double-Patty Chicken Burger</span>
+    <span>Jacket Potatoes</span>
+    <span>Fresh Baguettes</span>
+    <span>Protein Shakes</span>
+    <span>Open Seven Days</span>
+    <span>Piri-Piri Chicken Panini</span>
+    <span>Full English Breakfast</span>
+    <span>Double-Patty Chicken Burger</span>
+    <span>Jacket Potatoes</span>
+    <span>Fresh Baguettes</span>
+    <span>Protein Shakes</span>
+    <span>Open Seven Days</span>
+  </div>
+</div>
+
+<!-- MENU -->
+<section id="menu" class="reveal">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <span class="eyebrow">What we make</span>
+        <h2 class="h-section">The board <em>— served fresh on Hughenden Road.</em></h2>
+      </div>
+      <p>A full board changes through the day. Call for today's specials, allergens, or anything off-menu — chances are we can do it.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="m-block">
+        <h3>Breakfasts <span class="num">— 01</span></h3>
+        <ul>
+          <li><span class="item">Full English</span><span class="note">eggs your way</span></li>
+          <li><span class="item">Breakfast Baguette</span><span class="note">bacon, egg, sausage</span></li>
+          <li><span class="item">Sausage Baguette</span><span class="note">in a fresh baguette</span></li>
+          <li><span class="item">&amp; more on the board</span><span class="note">all served from 9am</span></li>
+        </ul>
+      </div>
+
+      <div class="m-block">
+        <h3>Paninis <span class="num">— 02</span></h3>
+        <ul>
+          <li><span class="item">Creamy Piri-Piri Chicken</span><span class="note">mixed salad, cheese</span></li>
+          <li><span class="item">A full grilled selection</span><span class="note">see the in-shop board</span></li>
+          <li><span class="item">Any of ours, on a baguette</span><span class="note">ask at the counter</span></li>
+        </ul>
+      </div>
+
+      <div class="m-block">
+        <h3>Fresh Baguettes <span class="num">— 03</span></h3>
+        <ul>
+          <li><span class="item">Hot &amp; cold fillings</span><span class="note">choose your own</span></li>
+          <li><span class="item">Made to order</span><span class="note">walk in or ring through</span></li>
+          <li><span class="item">Ring ahead for lunch</span><span class="note">ready when you are</span></li>
+        </ul>
+      </div>
+
+      <div class="m-block">
+        <h3>Jackets &amp; Burgers <span class="num">— 04</span></h3>
+        <ul>
+          <li><span class="item">Jacket Potatoes</span><span class="note">choose your fillings</span></li>
+          <li><span class="item">Double-Patty Chicken Burger</span><span class="note">a regular favourite</span></li>
+          <li><span class="item">Hot food off the grill</span><span class="note">made to order</span></li>
+        </ul>
+      </div>
+
+      <div class="m-block">
+        <h3>Shakes &amp; Drinks <span class="num">— 05</span></h3>
+        <ul>
+          <li><span class="item">Protein Shakes</span><span class="note">post-gym favourite</span></li>
+          <li><span class="item">Hot drinks</span><span class="note">tea, coffee, the proper way</span></li>
+          <li><span class="item">Cold drinks</span><span class="note">cans &amp; bottles in the fridge</span></li>
+        </ul>
+      </div>
+
+      <div class="m-block">
+        <h3>Ask in-shop <span class="num">— 06</span></h3>
+        <ul>
+          <li><span class="item">Specials on the board</span><span class="note">change through the week</span></li>
+          <li><span class="item">Allergens &amp; swaps</span><span class="note">just ask the counter</span></li>
+          <li><span class="item">Off-menu requests</span><span class="note">chances are, we can do it</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="m-foot">
+      <span>Full board is in the shop. Prices change with the season — give us a ring for today's.</span>
+      <a href="tel:+441494531757">Call for today's specials → 01494 531757</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="t"><span class="n">4.2★</span><span class="l">85 Google reviews</span></div>
+    <div class="t"><span class="n">FHRS</span><span class="l">Food hygiene inspected, satisfactory</span></div>
+    <div class="t"><span class="n">HP13</span><span class="l">Independent · Hughenden Road</span></div>
+  </div>
+</section>
+
+<!-- WHERE -->
+<section id="where" class="dark reveal">
+  <div class="wrap">
+    <div class="where-grid">
+      <div>
+        <span class="eyebrow">Find us · open every day</span>
+        <h2 class="h-section">Hughenden Road, <em>just up from the town centre.</em></h2>
+        <p style="max-width:42ch; opacity:.85">On the parade at 127, between the school run and the gym. Walk in for the breakfast crowd, ring through your lunch order so it's ready when you are.</p>
+        <ul class="hours-list">
+          <li><span class="day">Monday</span><span class="h">9:30 — 6:00</span></li>
+          <li><span class="day">Tuesday</span><span class="h">9:30 — 6:00</span></li>
+          <li><span class="day">Wednesday</span><span class="h">9:30 — 6:00</span></li>
+          <li><span class="day">Thursday</span><span class="h">9:30 — 6:00</span></li>
+          <li><span class="day">Friday</span><span class="h">9:30 — 6:00</span></li>
+          <li><span class="day">Saturday</span><span class="h">10:00 — 5:00</span></li>
+          <li><span class="day">Sunday</span><span class="h">9:00 — 5:00</span></li>
+        </ul>
+        <p class="addr-block">127 Hughenden Road<br>High Wycombe, HP13 5PN</p>
+        <a class="ctaA" href="tel:+441494531757">Call &amp; collect · 01494 531757</a>
+      </div>
+
+      <div class="map-card">
+        <span class="map-tag">127 Hughenden Rd</span>
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map of Baguettes &amp; More, 127 Hughenden Road, High Wycombe"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-0.7556%2C51.6359%2C-0.7456%2C51.6419&layer=mapnik&marker=51.638919%2C-0.7506001">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2>Baguettes &amp; More <em>— Hughenden Road, HP13.</em></h2>
+        <p style="max-width:36ch; margin-top:1.2rem">An independent High Wycombe sandwich shop. Hot food, fast, made the way you'd make it at home — if you had a flat-top, a panini grill and a queue out the door.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <p>127 Hughenden Road<br>High Wycombe<br>HP13 5PN</p>
+        <p style="margin-top:1.1rem"><a href="https://www.openstreetmap.org/?mlat=51.638919&amp;mlon=-0.7506001#map=18/51.638919/-0.750600" rel="noopener">Open in maps →</a></p>
+      </div>
+      <div>
+        <h4>Order &amp; talk</h4>
+        <p><a href="tel:+441494531757">01494 531757</a></p>
+        <h4 style="margin-top:1.4rem">Hours</h4>
+        <p>Mon–Fri · 9:30 — 6:00<br>Saturday · 10:00 — 5:00<br>Sunday · 9:00 — 5:00</p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© Baguettes &amp; More · Independent · High Wycombe</span>
+      <span>Site built by <a href="#" style="color:rgba(251,245,230,.7)">Binning.AI</a> for an independent local business.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
